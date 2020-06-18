@@ -1,0 +1,74 @@
+.row {
+  max-width: $grid-width;
+  margin: 0 auto;
+  // - This applies the margin to everything except for the last child.
+  // - thats what the pseudo selector not does.
+  &:not(:last-child) {
+    margin-bottom: $gutter-vertical;
+    @include respond(tab-port) {
+      margin-bottom: $gutter-vertical-small;
+    }
+  }
+
+  @include respond(tab-port) {
+    max-width: 50rem;
+    padding: 0 3rem;
+  }
+
+  @include clearfix;
+
+  // - This will get everything in which the class attribute starts, and thats what the
+  //        ^ symbol means.
+  // - ^ starts with
+  // - $ ends with
+  // - So, this is a selector
+  // - All of the classes that start with col- will have these rules.
+  // - In React, we are using css modules, so the class names are different
+  [class*="col"] {
+    float: left;
+
+    &:not(:last-child) {
+      margin-right: $gutter-horizontal;
+
+      @include respond(tab-port) {
+        margin-right: 0;
+        margin-bottom: $gutter-vertical-small;
+      }
+    }
+
+    @include respond(tab-port) {
+      width: 100% !important;
+    }
+  }
+
+  .col1of2 {
+    // - you can do calculations and MIX units
+    width: calc((100% - #{$gutter-horizontal}) / 2);
+  }
+
+  .col1of3 {
+    width: calc((100% - 2 * #{$gutter-horizontal}) / 3);
+  }
+
+  .col1of4 {
+    width: calc((100% - 3 * #{$gutter-horizontal}) / 4);
+  }
+
+  .col2of3 {
+    width: calc(
+      2 * ((100% - 2 * #{$gutter-horizontal}) / 3) + #{$gutter-horizontal}
+    );
+  }
+
+  .col2of4 {
+    width: calc(
+      2 * ((100% - 3 * #{$gutter-horizontal}) / 4) + #{$gutter-horizontal}
+    );
+  }
+
+  .col3of4 {
+    width: calc(
+      3 * ((100% - 3 * #{$gutter-horizontal}) / 4) + 2 * #{$gutter-horizontal}
+    );
+  }
+}

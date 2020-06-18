@@ -1,0 +1,14 @@
+export const AUTH_START = "AUTH_START";
+export const AUTH_SUCCESS = "AUTH_SUCCESS";
+export const AUTH_FAIL = "AUTH_FAIL";
+export const AUTH_LOGOUT = "AUTH_LOGOUT";
+
+export const FETCH_DISHES = "FETCH_DISHES";
+export const FETCH_DISHES_START = "FETCH_DISHES_START";
+export const FETCH_DISHES_SUCCESS = "FETCH_DISHES_SUCCESS";
+export const FETCH_DISHES_FAIL = "FETCH_DISHES_FAIL";
+
+export const ADD_DISH = "ADD_DISH";
+export const ADD_DISH_START = "ADD_DISH_START";
+export const ADD_DISH_SUCCESS = "ADD_DISH_SUCCESS";
+export const ADD_DISH_FAIL = "FETCH_DISH_FAIL";

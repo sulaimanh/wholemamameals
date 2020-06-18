@@ -1,0 +1,21 @@
+@import "../../../sass/main.scss";
+.Modal {
+  position: fixed;
+  z-index: 4000;
+  background-color: white;
+  width: 70%;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba($color-black, 0.2);
+  padding: 16px;
+  left: 15%;
+  top: 30%;
+  box-sizing: border-box;
+  transition: all 0.4s ease-out;
+}
+
+@media (min-width: 600px) {
+  .Modal {
+    width: 500px;
+    left: calc(50% - 250px);
+  }
+}

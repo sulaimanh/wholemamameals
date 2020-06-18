@@ -1,0 +1,9 @@
+@import "../../sass/abstracts/variables";
+
+.Small {
+  position: fixed;
+  bottom: 3%;
+  right: 0;
+  transform: translate(-50%, -10%);
+  z-index: 2000;
+}

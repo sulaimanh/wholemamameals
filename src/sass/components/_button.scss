@@ -1,0 +1,85 @@
+.btn {
+  font-family: inherit;
+  &,
+  &:link,
+  &:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    display: inline-block;
+    border-radius: 10rem;
+    font-size: $default-font-size;
+
+    transition: all 0.2s;
+    position: relative;
+    border: none;
+    cursor: pointer;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba($color-black, 0.2);
+
+    &::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0;
+    }
+  }
+
+  &:active,
+  &:focus {
+    outline: none;
+    transform: translateY(1px);
+    box-shadow: 0 5px 10px rgba($color-black, 0.2);
+  }
+
+  &Smll {
+    padding: 1rem 2rem;
+  }
+
+  &White {
+    background-color: $color-white;
+    color: $color-primary-dark;
+
+    &::after {
+      background-color: $color-white;
+    }
+  }
+
+  &Primary {
+    background-color: $color-primary;
+    color: $color-white;
+
+    &::after {
+      background-color: $color-primary;
+    }
+  }
+
+  &::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.4s;
+  }
+
+  &Animated {
+    animation: moveInBottom 1s ease-out 0.95s;
+    animation-fill-mode: backwards;
+  }
+
+  &Disabled {
+    background-color: rgba($color-primary, 0.5);
+    pointer-events: none;
+    cursor: default;
+  }
+
+  &DisabledAuth {
+    background-color: rgba($color-white, 0.5);
+  }
+}

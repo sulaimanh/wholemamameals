@@ -1,0 +1,1 @@
+The idea behind a modal is to have a wrapping element which provides the styling which then simply wraps itself about any content we want to show in that modal.

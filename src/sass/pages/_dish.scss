@@ -1,0 +1,169 @@
+.addDish {
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 3rem;
+}
+
+.dish {
+  position: relative;
+  margin-top: 2rem;
+
+  &__ingredientsContainer {
+    display: inline-block;
+    vertical-align: top;
+
+    width: 44%;
+    margin: 1rem 0 3rem 0;
+
+    @include respond(tab-land) {
+      width: 44%;
+      margin-left: 1rem;
+    }
+
+    @include respond(tab-port) {
+      width: 95%;
+      margin-bottom: 2rem;
+      margin-top: 0;
+    }
+  }
+  &__stepsContainer {
+    display: inline-block;
+    width: 44%;
+    margin: 1rem 0 3rem 1rem;
+    @include respond(tab-land) {
+      width: 44%;
+      margin-left: 1rem;
+    }
+
+    @include respond(tab-port) {
+      width: 95%;
+      margin-top: 0;
+    }
+  }
+
+  &__lists {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.wrapper {
+  width: 100%;
+  position: relative;
+  display: inline-block;
+  text-align: center;
+}
+
+.playerWrapper {
+  background-color: $color-primary;
+  border-bottom: 5px solid $color-primary;
+  position: relative;
+  display: inline-block;
+
+  width: 55%;
+  height: 45rem;
+  @include respond(tab-port) {
+    width: 95%;
+  }
+
+  &__reactPlayer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.description {
+  display: inline-block;
+  width: 32%;
+  vertical-align: top;
+  background-color: $color-grey-light-1;
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 4rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+  }
+  height: 45rem;
+  text-align: left;
+  border-radius: 2rem;
+  padding: 3rem 5rem;
+  margin-left: 2rem;
+
+  @include respond(tab-land) {
+    width: 32%;
+    margin-left: 1rem;
+  }
+
+  @include respond(tab-port) {
+    width: 95%;
+    // height: 15rem;
+    // font-size: 2rem;
+    height: fit-content;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    margin-left: 0;
+  }
+}
+
+.ingredients {
+  position: relative;
+  width: 100%;
+  height: fit-content;
+  max-height: 45rem;
+  background-color: $color-grey-light-1;
+  padding: 3rem 5rem;
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 4rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+  }
+
+  border-radius: 2rem;
+  text-align: left;
+
+  &__list {
+    position: relative;
+    width: 98%;
+
+    &__ing {
+      position: relative;
+      width: 100%;
+      padding: 1rem;
+      margin: 1rem;
+      border-radius: 1rem;
+      background-color: $color-grey-light-1;
+      box-shadow: 0 1.5rem 4rem rgba($color-black, 0.2);
+      cursor: pointer;
+      transition: all 0.4s;
+
+      &:hover {
+        color: $color-primary;
+        box-shadow: 0 1.5rem 4rem rgba($color-black, 0.3);
+        background-color: $color-grey-light-2;
+      }
+
+      &:active {
+        box-shadow: 0 1.5rem 4rem rgba($color-black, 0.2);
+      }
+    }
+  }
+}

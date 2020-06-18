@@ -1,0 +1,50 @@
+// This is the basic definitions of our entire project
+
+/* Here, we are doing a simple reset. We do it with the universal selector */
+/* This is a universal selector */
+/* This will select each and every element on the page, and then apply these declarations here to it */
+/* By default, browsers set a certain margin or padding, to some elements. Here, we set it to zero because we dont want the default settings. */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+
+  /* What is border-sizing? */
+  /* https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing */
+  /* This CSS property sets how the total width and height of an element is calculated */
+  /* By default in the CSS box model, the width and height you assign to an element is applied only to the element's content box. */
+  /* If the element has any border or padding, this is then added to the width and height to arrive at the size of the boz that's rendered on the screen. */
+  /* content-box is the default choice we just mentioned */
+  /* border-box tells the browser to account for any padding in the values you specify for an element's width and height */
+  box-sizing: inherit;
+}
+
+html {
+  // - This is to define what 1 rem is
+  // - This font size is what defines the size of out entire layout.
+  // - By using rem, we made the entire layout of the page dependent on the font size.
+  // - This is a good thing because now, in responsive design, we can simply change the font size here and all of the measurements in rem
+  //    will scale up or down according to this font size. This saves A LOT of time.
+  // - 1 rem = 10px
+  // - 10px/16px = 62.5%
+  font-size: 62.5%;
+
+  @include respond(tab-land) {
+    font-size: 56.25%;
+  }
+
+  @include respond(tab-port) {
+    font-size: 50%;
+  }
+
+  @include respond(big-desktop) {
+    // 1rem = 12px, 12/16 = 7%5
+    font-size: 75%;
+  }
+}
+
+body {
+  box-sizing: border-box;
+  padding: 0rem;
+}

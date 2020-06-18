@@ -1,0 +1,115 @@
+/* Here, we should do everything regarding to font in the body. NOT IN THE UNIVERSAL SELECTOR */
+body {
+  font-family: "Comic Neue", cursive;
+  // font-family: "Montserrat", sans-serif;
+  // font-family: "Lato", sans-serif;
+  font-weight: 400;
+  //   font-size: 16px;
+  line-height: 1.7; /* 1.7 times larger */
+  color: $color-grey-dark;
+}
+
+.headingPrimary {
+  margin-bottom: 6rem;
+  text-transform: uppercase;
+  backface-visibility: hidden;
+  color: $color-white;
+
+  &Main {
+    font-size: 4rem;
+    display: block;
+    font-weight: 400;
+
+    letter-spacing: 2rem;
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+
+    @include respond(phone) {
+      letter-spacing: 1rem;
+      font-size: 3rem;
+    }
+  }
+
+  &Sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.05rem;
+    animation-name: moveInRight;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    animation-delay: 0.5s;
+    animation-fill-mode: backwards;
+
+    @include respond(phone) {
+      letter-spacing: 0.5rem;
+    }
+  }
+}
+
+.headingSecondary {
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.2rem;
+  display: inline-block;
+  text-shadow: 0.5rem 1rem 2rem rgba($color-black, 0.3);
+
+  @include respond(tab-port) {
+    font-size: 3rem;
+  }
+
+  @include respond(phone) {
+    font-size: 3rem;
+  }
+
+  &__primary {
+    background-image: linear-gradient(
+      to right,
+      $color-primary,
+      $color-primary-dark
+    );
+  }
+
+  &__white {
+    // background-color: $color-primary-dark;
+    background-image: linear-gradient(
+      to right,
+      $color-primary-dark,
+      $color-primary-dark-2
+    );
+  }
+
+  transition: all 0.3s;
+
+  -webkit-background-clip: text;
+  color: transparent;
+
+  &:hover {
+    letter-spacing: 0.7rem;
+    transform: scale(1.1);
+    text-shadow: 0.5rem 1rem 2rem rgba($color-black, 0.3);
+  }
+
+  @include respond(tab-land) {
+    &:hover {
+      letter-spacing: 0.2rem;
+      transform: scale(1);
+    }
+  }
+}
+
+.headingTertiary {
+  font-size: $default-font-size-tertiary;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.paragraph {
+  font-size: $default-font-size;
+
+  &:not(:last-child) {
+    margin-bottom: 3rem;
+  }
+}

@@ -1,0 +1,77 @@
+.featureBox {
+  width: 75%;
+  margin: 0 auto;
+  box-shadow: 0 3rem 6rem rgba($color-black, 0.1);
+  background-color: rgba($color-white, 0.5);
+  border-radius: 3px;
+  padding: 6rem;
+  padding-left: 9rem;
+  font-size: $default-font-size;
+  transform: skewX(-12deg);
+
+  @include respond(tab-port) {
+    width: 100%;
+    padding: 4rem;
+    padding-left: 7rem;
+  }
+
+  @include respond(phone) {
+    transform: skewX(0deg);
+  }
+
+  &__shape {
+    position: relative;
+    width: 15rem;
+    height: 15rem;
+    float: left;
+    // - This only works when you define the width and the height.
+    // - You also have to define the float value
+    -webkit-shape-outside: circle(50% at 50% 50%);
+    // - This defines where the content floats around the element
+    shape-outside: circle(50% at 50% 50%);
+    -webkit-clip-path: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+
+    // - The best way to move around an element that is floated is not use
+    //    margins but to use the transforms property
+    transform: translateX(-3rem) skewX(12deg);
+    @include respond(phone) {
+      transform: translateX(-3rem) skewX(0deg);
+    }
+  }
+
+  &__image {
+    height: 100%;
+    transform: translateX(2rem) translateY(2rem) scale(1.4);
+    transition: all 0.5s;
+  }
+
+  &__caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    color: $color-white;
+    opacity: 0;
+    text-transform: uppercase;
+    transition: all 0.5s;
+    backface-visibility: hidden;
+  }
+
+  &__text {
+    transform: skewX(12deg);
+    @include respond(phone) {
+      transform: skewX(0deg);
+    }
+  }
+
+  &:hover &__caption {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+
+  &:hover &__image {
+    // - This applies filter to the image
+    filter: blur(3px) brightness(80%);
+  }
+}

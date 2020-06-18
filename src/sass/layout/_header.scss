@@ -1,0 +1,41 @@
+.header {
+  position: relative;
+  height: 92vh;
+  background-image: linear-gradient(
+      to bottom right,
+      rgba($color-primary, 0.5),
+      rgba($color-primary-dark, 0.8)
+    ),
+    url("../../assets/images/wholeMama.jpeg");
+  background-size: cover;
+  background-position: center;
+
+  @include respond(tab-port) {
+    border-radius: 0;
+  }
+
+  &__logoBox {
+    position: absolute;
+
+    top: 4rem;
+    left: 4rem;
+  }
+
+  &__logo {
+    background-color: rgba($color-black, 0.3);
+    box-shadow: 0rem 0rem 2.5rem 2rem rgba($color-black, 0.3);
+    height: 9.5rem;
+
+    @include respond(phone) {
+      height: 5rem;
+    }
+  }
+
+  &__textBox {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+}

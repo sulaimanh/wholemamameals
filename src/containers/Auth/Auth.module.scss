@@ -1,0 +1,36 @@
+@import "../../sass/main.scss";
+
+.signHeading {
+  display: inline-block;
+  padding: 1rem 1.5rem 0rem 0rem;
+  margin-bottom: 2rem;
+}
+
+.selectionBox {
+  border-radius: 4px;
+
+  cursor: pointer;
+  position: relative;
+  display: inline;
+}
+
+.selection {
+  display: inline-block;
+  cursor: pointer;
+  padding: 1rem 0.5rem 0rem 1rem;
+  transition: all 0.5s;
+  &:not(:last-child) {
+    margin-right: 2rem;
+  }
+}
+
+.chosen {
+  color: $color-white;
+  background-color: rgba($color-primary, 0.9);
+  border-radius: 4px;
+}
+
+.hide {
+  visibility: hidden;
+  color: transparent;
+}

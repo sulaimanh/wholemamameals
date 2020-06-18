@@ -1,0 +1,9 @@
+@import "../../../../sass/main.scss";
+@import "../../../../sass/pages/dish";
+
+.Small {
+  position: fixed;
+  top: 2%;
+  left: 2%;
+  z-index: 2000;
+}
