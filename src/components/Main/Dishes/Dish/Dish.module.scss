@@ -10,6 +10,8 @@
 
 .sub {
   border-radius: 1rem 1rem 0 0;
+  background-color: rgba($color-primary, 0.9);
+  width: 100%;
   &__text {
     color: white;
     transition: all 0.2s;

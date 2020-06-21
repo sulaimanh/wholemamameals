@@ -8,20 +8,29 @@ import styles from "./Layout.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faYoutube } from "@fortawesome/free-brands-svg-icons";
 import { Route, Switch } from "react-router-dom";
-import AddDish from "../Dishes/AddDish/AddDish";
-import Auth from "../Auth/Auth";
 import { connect } from "react-redux";
 import Dish from "../../components/Main/Dishes/Dish/Dish";
 import { withRouter } from "react-router-dom";
 // import YoutubeSubcribe from "../../components/Main/Dishes/Dish/YoutubeSubscribe/YoutubeSubscribe";
 import MiniHeader from "../../components/Header/MiniHeader/MiniHeader";
+import asyncComponent from "../../hoc/asyncComponent/asyncComponent";
 // import DidYouEnjoy from "../../components/DidYouEnjoy/DidYouEnjoy";
 // import Modal from "../../components/UI/Modal/Modal";
+
+const asyncAddDish = asyncComponent(() => {
+  return import("../Dishes/AddDish/AddDish");
+});
+
+const asyncAuth = asyncComponent(() => {
+  return import("../Auth/Auth");
+});
 
 class Layout extends Component {
   state = {
     showSubscribe: false,
-    showModal: false
+    showModal: false,
+    heading: "Subscribe to Whole Mama Meals on YouTube!",
+    bottomButton: true
   };
 
   constructor(props) {
@@ -78,11 +87,29 @@ class Layout extends Component {
   //   this.props.history.goBack();
   // };
 
+  mouseEnter = () => {
+    this.setState({ heading: "Whole Mama Meals!" });
+  };
+
+  mouseLeave = () => {
+    this.setState({
+      heading: "Subscribe to Whole Mama Meals on YouTube!"
+    });
+  };
+
+  bottomMouseEnter = () => {
+    this.setState({ bottomButton: false });
+  };
+
+  bottomMouseLeave = () => {
+    this.setState({ bottomButton: true });
+  };
+
   render() {
     return (
       <React.Fragment>
         <Switch>
-          <Route path="/admin" component={Auth} />
+          <Route path="/admin" component={asyncAuth} />
           <Route path="/dish">
             {/* {this.state.showModal ? (
               <Modal clicked={this.onLeaveModal} show={this.state.showModal}>
@@ -96,12 +123,21 @@ class Layout extends Component {
             <Footer />
           </Route>
           {this.props.isAuthenticated ? (
-            <Route path="/addDish" component={AddDish} />
+            <Route path="/addDish" component={asyncAddDish} />
           ) : null}
 
           <Route path="/">
-            <div onClick={this.onSubscribeHandler} className={styles.bannerTop}>
-              Subscribe to Whole Mama Meals on YouTube!
+            <div
+              onMouseEnter={this.mouseEnter}
+              onMouseLeave={this.mouseLeave}
+              onClick={this.onSubscribeHandler}
+              className={styles.bannerTop}
+            >
+              <p
+                className={[styles.paragraph, styles.bannerTop__text].join(" ")}
+              >
+                <FontAwesomeIcon icon={faYoutube} /> {this.state.heading}
+              </p>
             </div>
             <Header moveToSectionClicked={this.moveToSection.bind(this)} />
             <About />
@@ -111,9 +147,25 @@ class Layout extends Component {
           </Route>
         </Switch>
         {/* {sub} */}
-        <div className={styles.Small}>
-          <Big small="true" color="primary" handler={this.onSubscribeHandler}>
-            <FontAwesomeIcon icon={faYoutube} />
+        <div
+          onMouseEnter={this.bottomMouseEnter}
+          onMouseLeave={this.bottomMouseLeave}
+          className={styles.Small}
+        >
+          <Big
+            animateGrowth={true}
+            animated="true"
+            small="true"
+            color="primary"
+            handler={this.onSubscribeHandler}
+          >
+            {this.state.bottomButton ? (
+              <FontAwesomeIcon icon={faYoutube} />
+            ) : (
+              <p className={[styles.paragraph, styles.growParagraph].join(" ")}>
+                <FontAwesomeIcon icon={faYoutube} /> Whole Mama Meals
+              </p>
+            )}
           </Big>
         </div>
       </React.Fragment>

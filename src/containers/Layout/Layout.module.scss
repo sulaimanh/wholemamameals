@@ -1,4 +1,5 @@
-@import "../../sass/abstracts/variables";
+@import "../../sass/main.scss";
+// @import "../../sass/abstracts/variables";
 
 .Small {
   position: fixed;
@@ -28,4 +29,18 @@
   z-index: 6000;
   cursor: pointer;
   background-color: $color-primary;
+  &__text {
+    color: white;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+
+  &:hover {
+    background-color: #ff0100;
+  }
+
+  &:hover &__text {
+    animation-name: moveInLeft;
+    animation-duration: 0.5s;
+  }
 }

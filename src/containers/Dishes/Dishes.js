@@ -17,7 +17,7 @@ import {
   ButtonNext
 } from "pure-react-carousel";
 import "pure-react-carousel/dist/react-carousel.es.css";
-import YoutubeSubscribe from "../../components/Main/Dishes/Dish/YoutubeSubscribe/YoutubeSubscribe";
+// import YoutubeSubscribe from "../../components/Main/Dishes/Dish/YoutubeSubscribe/YoutubeSubscribe";
 
 class Dishes extends Component {
   state = {
@@ -50,10 +50,6 @@ class Dishes extends Component {
 
     this.updateDimensions();
     window.addEventListener("resize", this.updateDimensions.bind(this));
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener("resize", this.updateDimensions.bind(this));
   }
 
   goToDishHandler = (title, event) => {

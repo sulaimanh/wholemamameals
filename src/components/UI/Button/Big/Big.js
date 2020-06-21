@@ -8,6 +8,10 @@ const big = (props) => {
     style.push(styles.btnSmll);
   }
 
+  if (props.animateGrowth) {
+    style.push(styles.btnAnimateGrowth);
+  }
+
   if (props.color === "white") {
     style.push(styles.btnWhite);
   } else if (props.color === "primary") {

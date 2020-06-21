@@ -82,4 +82,14 @@
   &DisabledAuth {
     background-color: rgba($color-white, 0.5);
   }
+
+  &AnimateGrowth {
+    &:hover {
+      background-color: #ff0100;
+
+      &::after {
+        background-color: #ff0100;
+      }
+    }
+  }
 }

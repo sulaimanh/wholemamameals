@@ -2,7 +2,6 @@ import React from "react";
 import styles from "./MiniHeader.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
-import Button from "../../UI/Button/Big/Big";
 
 const miniHeader = (props) => {
   return (

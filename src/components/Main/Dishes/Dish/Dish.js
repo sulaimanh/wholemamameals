@@ -4,6 +4,8 @@ import { withRouter } from "react-router-dom";
 import Ingredients from "./Ingredients/Ingredients";
 import Tertiary from "../../../UI/Heading/Tertiary/Tertiary";
 import { connect } from "react-redux";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faYoutube } from "@fortawesome/free-brands-svg-icons";
 import * as actions from "../../../../store/actions/index";
 
 class Dish extends Component {
@@ -44,8 +46,10 @@ class Dish extends Component {
               <div
                 style={{ cursor: "pointer" }}
                 onClick={() =>
-                  (window.location.href =
-                    "https://www.youtube.com/channel/UChK66QIStHwkU9lhoRKTKcg")
+                  window.open(
+                    `https://www.youtube.com/watch?v=${this.state.youtubeId}`,
+                    "_blank"
+                  )
                 }
               >
                 <div
@@ -54,7 +58,7 @@ class Dish extends Component {
                   className={styles.sub}
                 >
                   <p className={[styles.paragraph, styles.sub__text].join(" ")}>
-                    {this.state.heading}
+                    <FontAwesomeIcon icon={faYoutube} /> {this.state.heading}
                   </p>
                 </div>
               </div>
