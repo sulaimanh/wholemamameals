@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import styles from "./Dish.module.scss";
 import { withRouter } from "react-router-dom";
 import Ingredients from "./Ingredients/Ingredients";
-import MiniHeader from "../../../Header/MiniHeader/MiniHeader";
 import Tertiary from "../../../UI/Heading/Tertiary/Tertiary";
 import { connect } from "react-redux";
 import * as actions from "../../../../store/actions/index";
@@ -18,28 +17,49 @@ class Dish extends Component {
       description: dish[0].description,
       youtubeId: dish[0].youtubeId,
       ingredients: dish[0].ingredients,
-      steps: dish[0].steps
+      steps: dish[0].steps,
+
+      heading: "Don't forget to like and subscribe on YouTube!"
     };
   }
 
-  goBackToMainDishesHandler = (event) => {
-    event.preventDefault();
-    this.props.history.goBack();
+  mouseEnter = () => {
+    this.setState({ heading: "Whole Mama Meals!" });
+  };
+
+  mouseLeave = () => {
+    this.setState({
+      heading: "Don't forget to like and subscribe on YouTube!"
+    });
   };
 
   render() {
-    let youtubeLink = `https://www.youtube.com/embed/${this.state.youtubeId}`;
+    let youtubeLink = `https://www.youtube.com/embed/${this.state.youtubeId}?SameSite=Noneenablejsapi=1&origin=https://wholemamameals.com`;
 
     return (
       <React.Fragment>
-        <MiniHeader
-          goBackToMainDishesHandler={this.goBackToMainDishesHandler}
-        />
-
         <div className={styles.dish}>
           <div className={styles.wrapper}>
             <div className={[styles.playerWrapper].join(" ")}>
+              <div
+                style={{ cursor: "pointer" }}
+                onClick={() =>
+                  (window.location.href =
+                    "https://www.youtube.com/channel/UChK66QIStHwkU9lhoRKTKcg")
+                }
+              >
+                <div
+                  onMouseEnter={this.mouseEnter}
+                  onMouseLeave={this.mouseLeave}
+                  className={styles.sub}
+                >
+                  <p className={[styles.paragraph, styles.sub__text].join(" ")}>
+                    {this.state.heading}
+                  </p>
+                </div>
+              </div>
               <iframe
+                samesite="Secure"
                 title={this.state.title}
                 className={styles.playerWrapper__reactPlayer}
                 src={youtubeLink}
@@ -49,6 +69,7 @@ class Dish extends Component {
               ></iframe>
             </div>
             <div className={styles.description}>
+              {/* <YoutubeSubscribe /> */}
               <Tertiary margin="small" center="true">
                 {this.state.title}
               </Tertiary>

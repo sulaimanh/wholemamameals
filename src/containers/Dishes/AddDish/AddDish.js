@@ -105,7 +105,7 @@ class Dish extends Component {
         index: this.props.dishes.length
       };
 
-      this.props.onAddDish(dish);
+      this.props.onAddDish(dish, this.props.token);
       this.setState({
         title: "",
         youtubeId: "",
@@ -204,13 +204,14 @@ class Dish extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    dishes: state.dishes.dishes
+    dishes: state.dishes.dishes,
+    token: state.auth.token
   };
 };
 
 const mapDispathToProps = (dispatch) => {
   return {
-    onAddDish: (dish) => dispatch(actions.addDish(dish))
+    onAddDish: (dish, token) => dispatch(actions.addDish(dish, token))
   };
 };
 

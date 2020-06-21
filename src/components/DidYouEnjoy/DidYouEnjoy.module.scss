@@ -1,0 +1,23 @@
+@import "../../sass/main.scss";
+@import "../../sass/abstracts/variables";
+
+.dish {
+  width: 100%;
+}
+
+.image {
+  position: relative;
+  display: inline-block;
+  border-radius: 1rem;
+  width: 50%;
+}
+
+.desc {
+  display: inline-block;
+}
+
+.youtube {
+  font-weight: bold;
+  color: red;
+  text-decoration: underline;
+}

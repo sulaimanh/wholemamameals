@@ -16,7 +16,7 @@ body {
   color: $color-white;
 
   &Main {
-    font-size: 4rem;
+    font-size: 3.2rem;
     display: block;
     font-weight: 400;
 
@@ -27,13 +27,13 @@ body {
 
     @include respond(phone) {
       letter-spacing: 1rem;
-      font-size: 3rem;
+      font-size: 3.5rem;
     }
   }
 
   &Sub {
     display: block;
-    font-size: 2rem;
+    font-size: 1.7rem;
     font-weight: 700;
     letter-spacing: 1.05rem;
     animation-name: moveInRight;

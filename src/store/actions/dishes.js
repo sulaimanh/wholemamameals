@@ -8,7 +8,6 @@ export const fetchDishesStart = () => {
 };
 
 export const fetchDishesSuccess = (dishes) => {
-  
   return {
     type: actionTypes.FETCH_DISHES_SUCCESS,
     payload: {
@@ -65,19 +64,21 @@ export const addDishFail = (error) => {
   };
 };
 
-export const addDish = (dish) => {
+export const addDish = (dish, token) => {
   return (dispatch) => {
     console.log(dish);
     dispatch(addDishStart());
-    axios
-      .post("/dishes.json", {
-        dish: dish
-      })
-      .then((response) => {
-        console.log("Added");
-      })
-      .catch((error) => {
-        console.log("FAILED");
-      });
+    if (token) {
+      axios
+        .post("/dishes.json?auth=" + token, {
+          dish: dish
+        })
+        .then((response) => {
+          console.log("Added");
+        })
+        .catch((error) => {
+          console.log("FAILED");
+        });
+    }
   };
 };

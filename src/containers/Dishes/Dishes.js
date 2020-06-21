@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styles from "./Dishes.module.scss";
 import Secondary from "../../components/UI/Heading/Secondary/Secondary";
-import DishCard from "../../components/Body/Dishes/DishCard/DishCard";
+import DishCard from "../../components/Main/Dishes/DishCard/DishCard";
 import Button from "../../components/UI/Button/Big/Big";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
@@ -17,12 +17,14 @@ import {
   ButtonNext
 } from "pure-react-carousel";
 import "pure-react-carousel/dist/react-carousel.es.css";
+import YoutubeSubscribe from "../../components/Main/Dishes/Dish/YoutubeSubscribe/YoutubeSubscribe";
 
 class Dishes extends Component {
   state = {
     visibleSlides: 3.25,
     strLength: 0
   };
+
   onSelectDish = (event) => {
     this.setState((prevState) => {
       return {
@@ -60,21 +62,22 @@ class Dishes extends Component {
     //!!: Need to delete what is in local storage
     let newTitle = decodeURI(title);
     newTitle = newTitle.replace(/[?]/i, "");
+
     const dish = this.props.dishes.filter((dish) => {
       if (dish.title === newTitle) {
         return dish;
       }
     });
+
+    let random = Math.floor(Math.random() * this.props.dishes.length);
+    let dishToShow = this.props.dishes[random];
+
     localStorage.setItem("dishes", JSON.stringify(dish));
+    localStorage.setItem("dishToShow", JSON.stringify(dishToShow));
     this.props.history.push({ pathname: "/dish", search: `${title}` });
   };
 
   render() {
-    console.log(
-      "This how to make chicken and vegetable stuffed omelette recipe is packed with protein and nutrients."
-        .length
-    );
-
     let display = (
       <CarouselProvider
         naturalSlideWidth={400}
@@ -82,6 +85,7 @@ class Dishes extends Component {
         visibleSlides={this.state.visibleSlides}
         totalSlides={this.props.dishes.length}
         step={2}
+        dragStep={2}
         touchEnabled
         dragEnabled
         hasMasterSpinner={this.props.loading ? true : false}
@@ -124,9 +128,11 @@ class Dishes extends Component {
 
     return (
       <section ref={this.props.shopRef} className={styles.sectionShop}>
-        <Secondary margin="big" center="true">
-          Cook Delicious Recipes!
-        </Secondary>
+        {this.props.isModal ? null : (
+          <Secondary margin="small" center="true">
+            Cook Delicious Recipes!
+          </Secondary>
+        )}
 
         <div>{display}</div>
       </section>

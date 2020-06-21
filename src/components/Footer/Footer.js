@@ -12,12 +12,18 @@ const footer = () => {
           <div className={styles.footer__navigation}>
             <ul className={styles.footer__list}>
               <li className={styles.footer__item}>
-                <a href="#" className={styles.footer__link}>
+                <a
+                  href="https://www.facebook.com/wholemamameals"
+                  className={styles.footer__link}
+                >
                   Facebook
                 </a>
               </li>
               <li className={styles.footer__item}>
-                <a href="#" className={styles.footer__link}>
+                <a
+                  href="https://www.instagram.com/wholemamameals/"
+                  className={styles.footer__link}
+                >
                   Instagram
                 </a>
               </li>
@@ -35,6 +41,14 @@ const footer = () => {
           </p>
         </div>
       </div>
+      <p
+        onClick={() => {
+          window.location.href = "https://developerspath.com";
+        }}
+        className={styles.para}
+      >
+        <span>Whole</span> Mama Meals
+      </p>
     </footer>
   );
 };

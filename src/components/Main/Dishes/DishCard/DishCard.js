@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import styles from "./DishCard.module.scss";
-import Tertiary from "../../../UI/Heading/Tertiary/Tertiary";
 import Button from "../../../UI/Button/Big/Big";
 
 class DishCard extends Component {
   render() {
     let youtubeId = this.props.youtubeId;
-    let youtubeLink = `https://img.youtube.com/vi/${youtubeId}/mqdefault.jpg`;
+    let youtubeLink = `https://img.youtube.com/vi/${youtubeId}/mqdefault.jpg?enablejsapi=1&origin=https://wholemamameals.com`;
     return (
       <div className={styles.card}>
         <div className={[styles.card__side, styles.card__sideFront].join(" ")}>
@@ -46,7 +45,7 @@ class DishCard extends Component {
               color="white"
               animated="false"
             >
-              Dish
+              Recipe
             </Button>
           </div>
         </div>

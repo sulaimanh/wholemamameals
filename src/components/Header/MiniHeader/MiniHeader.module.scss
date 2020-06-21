@@ -3,3 +3,10 @@
 
 @import "../../../sass/layout/miniHeader";
 @import "../../../sass/main.scss";
+
+.fontAwesomeIcon {
+  cursor: pointer;
+  &:hover {
+    color: $color-grey-dark;
+  }
+}

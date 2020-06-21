@@ -8,13 +8,13 @@ const miniHeader = (props) => {
   return (
     <div className={styles.miniHeader}>
       <div className={styles.miniHeader__buttonContainer}>
-        <Button
-          small="true"
-          handler={props.goBackToMainDishesHandler}
-          color="primary"
-        >
-          <FontAwesomeIcon icon={faArrowLeft} size="sm" />
-        </Button>
+        <FontAwesomeIcon
+          onClick={props.goBackToMainDishesHandler}
+          icon={faArrowLeft}
+          size="2x"
+          color="white"
+          className={styles.fontAwesomeIcon}
+        />
       </div>
       <h1 className={styles.miniHeader__header}>Whole Mama Meals</h1>
     </div>

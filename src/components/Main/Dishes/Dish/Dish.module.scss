@@ -1,0 +1,27 @@
+@import "../../../../sass/main.scss";
+@import "../../../../sass/pages/dish";
+
+.Small {
+  position: fixed;
+  top: 2%;
+  left: 2%;
+  z-index: 2000;
+}
+
+.sub {
+  border-radius: 1rem 1rem 0 0;
+  &__text {
+    color: white;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+
+  &:hover {
+    background-color: #ff0100;
+  }
+
+  &:hover &__text {
+    animation-name: moveInLeft;
+    animation-duration: 0.5s;
+  }
+}

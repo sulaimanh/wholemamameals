@@ -9,6 +9,7 @@ const body = (props) => {
     <main>
       <About />
       {/* <Maryouma /> */}
+
       <Dishes shopRef={props.shopRef} />
     </main>
   );

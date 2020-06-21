@@ -1,6 +1,13 @@
 .miniHeader {
   width: 100%;
-  background-color: $color-primary;
+  background-image: linear-gradient(
+      to bottom right,
+      rgba($color-primary, 0.8),
+      rgba($color-primary-dark, 0.8)
+    ),
+    url("../../assets/images/wholeMama.jpeg");
+  background-size: cover;
+  background-position: center;
   padding: 2rem;
 
   &__buttonContainer {
@@ -8,11 +15,11 @@
   }
 
   &__header {
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 400;
     display: inline-block;
     color: $color-white;
-    margin-left: 1rem;
+    margin-left: 2rem;
     letter-spacing: 1rem;
   }
 }

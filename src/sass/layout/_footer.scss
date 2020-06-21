@@ -1,6 +1,6 @@
 .footer {
   background-color: $color-grey-dark-3;
-  padding: 10rem 0;
+  padding: 5rem 0;
   font-size: 1.4rem;
 
   @include respond(tab-port) {
@@ -77,5 +77,18 @@
       text-align: center;
       float: none;
     }
+  }
+}
+
+.para {
+  position: absolute;
+
+  width: fit-content;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+
+  &:hover {
+    color: $color-primary;
   }
 }
