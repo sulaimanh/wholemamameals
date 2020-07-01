@@ -14,6 +14,7 @@ import { withRouter } from "react-router-dom";
 // import YoutubeSubcribe from "../../components/Main/Dishes/Dish/YoutubeSubscribe/YoutubeSubscribe";
 import MiniHeader from "../../components/Header/MiniHeader/MiniHeader";
 import asyncComponent from "../../hoc/asyncComponent/asyncComponent";
+import smoothscroll from "smoothscroll-polyfill";
 // import DidYouEnjoy from "../../components/DidYouEnjoy/DidYouEnjoy";
 // import Modal from "../../components/UI/Modal/Modal";
 
@@ -36,6 +37,7 @@ class Layout extends Component {
   constructor(props) {
     super(props);
     this.shopRef = React.createRef();
+    smoothscroll.polyfill();
   }
 
   moveToSection = (event) => {

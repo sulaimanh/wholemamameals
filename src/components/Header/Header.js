@@ -18,7 +18,7 @@ const header = (props) => {
         </h1>
 
         <Big handler={props.moveToSectionClicked} color="white" animated="true">
-          My Ingredients
+          My Recipes
         </Big>
       </div>
     </header>

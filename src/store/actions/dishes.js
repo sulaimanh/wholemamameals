@@ -27,6 +27,7 @@ export const fetchDishesFail = (error) => {
 export const fetchDishes = () => {
   return (dispatch) => {
     dispatch(fetchDishesStart());
+
     axios
       .get("/dishes.json")
       .then((res) => {
@@ -35,7 +36,9 @@ export const fetchDishes = () => {
           fetchedDishes.push(res.data[k].dish);
         }
 
-        dispatch(fetchDishesSuccess(fetchedDishes));
+        const dishes = fetchedDishes.reverse();
+
+        dispatch(fetchDishesSuccess(dishes));
       })
       .catch();
   };
@@ -66,7 +69,6 @@ export const addDishFail = (error) => {
 
 export const addDish = (dish, token) => {
   return (dispatch) => {
-    console.log(dish);
     dispatch(addDishStart());
     if (token) {
       axios
